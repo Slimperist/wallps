@@ -1,0 +1,107 @@
+.gallery-block.grid-gallery{
+    padding-bottom: 30px;
+    padding-top: 30px;
+}
+
+.gallery-block.grid-gallery .heading{
+    margin-bottom: 50px;
+    text-align: center;
+}
+
+.gallery-block.grid-gallery .heading h2{
+    font-weight: bold;
+    font-size: 1.4rem;
+    text-transform: uppercase;
+}
+
+.gallery-block.grid-gallery a:hover{
+    opacity: 0.8;
+}
+
+.gallery-block.grid-gallery .item img{
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.15);
+    transition: 0.4s;
+    height: 210px;
+    margin-bottom: 20px;
+    object-fit: contain;
+    border-radius: 10px;
+}
+
+.gallery-block.grid-gallery .item{
+    margin-bottom: 20px;
+}
+
+.gallery-block.grid-gallery .scale-on-hover:hover{
+    transform: scale(1.05);
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 1));
+    box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.15) !important;
+
+}
+
+.gallery-block.grid-gallery .item .description{
+    color: #fff;
+    padding: 10px;
+    font-size: 14px;
+    line-height: 18px;
+    width: 200px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    opacity: 1;
+    color: #fff;
+    transition: 0.8s ease;
+    text-align: center;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+}
+
+.gallery-block.grid-gallery .item .description .description-heading{
+    display: inline;
+    position: absolute;
+    top:5px;
+    left:5px;
+    font-size: 0.8em;
+    font-weight: 300;
+}
+
+.gallery-block.grid-gallery .item .description .description-body{
+    display: inline;
+    position: absolute;
+    bottom:5px;
+    left:5px;
+    font-size: 0.8em;
+    margin-bottom: 20px;
+    font-weight: 300;
+}
+
+.gallery-block.grid-gallery .item .description {
+    opacity: 0;
+}
+
+.gallery-block.grid-gallery .item a:hover .description {
+    opacity: 1;
+}
+
+.col-sl {
+    position: relative;
+    flex-basis: auto;
+    display: inline-block;
+}
+
+body {
+    background-image: linear-gradient(to top, #ecedee 0%, #eceeef 75%, #e7e8e9 100%);
+    font: normal 16px sans-serif;
+}
+
+.container-fluid.grid-gallery {
+    background-color: #fff;
+    color: #35373a;
+    width: calc(100% - 30px);
+    border-radius: 30px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    padding-left: 40px;
+}
+
+.modal.fade.position-absolute {
+    top: 0;
+    left: 0;
+}

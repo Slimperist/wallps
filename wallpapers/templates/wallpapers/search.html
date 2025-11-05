@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% load wallps_tags %}
+
+{% block title %}
+Обои для рабочего стола в высоком разрешении. Обои на телефон, планшет. {% wallpapers_count %} обоев для Вас!
+{% endblock %}
+
+{% block down_navbar %}
+    <div><b>По вашему запросу найдено: {{ search_count }} </b></div>
+{% endblock %}
+
+{% block content %}
+
+    {% if page_obj_s %}
+    {% for record in page_obj_s %}
+    <div class="col-sl item" >
+        <a class="lightbox" href="{{ record.get_absolute_url }}">
+            <img class="img-fluid image scale-on-hover" src="{{ record.path_preview }}">
+            <span class="description">
+                <span class="description-heading">{{ record.id_category }}</span>
+                <span class="description-body">{{ record.width }} X {{ record.height }}, {{ record.wallp_size }} Mb.</span>
+            </span>
+        </a>
+    </div>
+    {% endfor %}
+    {% else %}
+    <p align="center"><h4>По вашему запросу ничего не найдено</h4></p>
+    {% endif %}
+
+<!--Pagination-->
+<div class="col-12">
+        <nav aria-label="Page navigation example">
+                    <ul class="pagination justify-content-center">
+                        {% if page_obj_s.has_previous %}
+                            <li class="page-item"><a class="page-link text-dark" href="?s={{ s }}&page=1">1</a></li>
+                            <li class="page-item disabled"><a class="page-link text-dark" href="#">...</a></li>
+                            <li class="page-item"><a class="page-link text-dark" href="?s={{ s }}&page={{ page_obj_s.previous_page_number }}"><<<</a></li>
+                        {% endif %}
+					  {% if page_obj_s.has_next or page_obj_s.has_previous %}<li class="page-item active"><a class="page-link bg-dark border-0">{{ page_obj_s.number }}</a></li>{% endif %}
+                        {% if page_obj_s.has_next %}
+                            <li class="page-item"><a class="page-link text-dark" href="?s={{ s }}&page={{ page_obj_s.next_page_number }}">>>></a></li>
+                            <li class="page-item disabled"><a class="page-link text-dark" href="#">...</a></li>
+                            <li class="page-item"><a class="page-link text-dark" href="?s={{ s }}&page={{ page_obj_s.paginator.num_pages }}">{{ page_obj_s.paginator.num_pages }}</a></li>
+                        {% endif %}
+				  </ul>
+        </nav>
+</div>
+<!--Pagination -->
+
+{% endblock %}

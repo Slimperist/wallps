@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% load wallps_tags %}
+
+{% block down_navbar %}
+    <div><b>Новые обои | | {% wallpapers_count %}  | | Последнее обновление:  {% last_updated_date %}</b></div>
+{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row">
+        {% for tag in tags %}
+        <div class="col-3">
+            <a href="{{ tag.get_absolute_url }}" class="text-dark">
+                <span class="badge badge-secondary">{{ tag.tag_name }}</span>
+                <span class="badge badge-dark">{{ tag.wallpaper_count }}</span>
+            </a>
+        </div>
+        {% empty %}
+        <p>No tags yet.</p>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
