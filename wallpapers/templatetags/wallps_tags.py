@@ -15,28 +15,18 @@ def wallpapers_count():
 
 @register.simple_tag()
 def last_updated_date():
-    model_name = 'Wallpapers'
-    model_class = ContentType.objects.get(app_label='wallpapers', model=model_name.lower()).model_class()
-    last_updated = model_class.objects.latest('created_up').created_up
-    now = datetime.now()
-    # Если дата обновления равна текущей дате, выводим "сегодня в час:минуты"
-    if last_updated.date() == now.date():
-        return f"Сегодня в {last_updated.strftime('%H:%M')}"
-    # Если дата обновления была вчера, выводим "вчера в час:минуты"
-    elif last_updated.date() == now.date() - timedelta(days=1):
-        return f"Вчера в {last_updated.strftime('%H:%M')}"
-    # Если дата обновления была в этом году
-    elif last_updated.year == now.year:
-        return last_updated.strftime("%d %B в %H:%M")
-    # Во всех остальных случаях выводим дату и время обновления в полном формате "день месяца год в час:минуты"
-    else:
-        return last_updated.strftime("%d %B %Y в %H:%M")
+    from wallpapers.models import Wallpapers
+    # Просто берем дату последнего добавленного элемента напрямую из таблицы обоев
+    last_wallpaper = Wallpapers.objects.order_by('-created_up').first()
+    if last_wallpaper:
+        return last_wallpaper.created_up.strftime("%d.%m.%Y")
+    return "Нет данных"
 
 
 # Получаем ВСЕ категории и кол-во записей в каждой
 @register.simple_tag
 def get_categories():
-    return Categories.objects.annotate(Count('wallpapers')).order_by('name_category_ru')
+    return Categories.objects.annotate(Count('wallpapers')).order_by('name_category')
 
 
 # Получаем категорию в которой находимся сейчас и кол-во записей в ней

@@ -49,7 +49,8 @@ def view_wallp(request, wallp_id):
 def tag_list(request):
     # Выбираем только те тэги с которыми количество записей > 99. т.к.
     # количество тэгов в базе > 22 000 и много тэгов имеют по 1-5 связанных записей
-    tags = Tags.objects.annotate(wallpaper_count=Count('wallpapers_tags')).filter(wallpaper_count__gt=99).order_by('-wallpaper_count')
+    #tags = Tags.objects.annotate(wallpaper_count=Count('wallpapers_tags')).filter(wallpaper_count__gt=99).order_by('-wallpaper_count')
+    tags = Tags.objects.annotate(wallpaper_count=Count('wallpapers_tags__wallpaper_id')).filter(wallpaper_count__gt=99).order_by('-wallpaper_count')
     return render(request, 'wallpapers/tags.html', {'tags': tags})
 
 

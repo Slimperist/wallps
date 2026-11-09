@@ -2,12 +2,8 @@
 
 {% load wallps_tags %}
 
-{% block title %}
-Обои для рабочего стола в высоком разрешении. Обои на телефон, планшет. {% wallpapers_count %} обоев для Вас!
-{% endblock %}
-
 {% block down_navbar %}
-    <div><b>Новые обои | | {% wallpapers_count %}  | | Последнее обновление:  {% last_updated_date %}</b></div>
+    <div><b>Total wallpapers: {% wallpapers_count %}  | | Last updated: {% last_updated_date %}</b></div>
 {% endblock %}
 
 {% block content %}

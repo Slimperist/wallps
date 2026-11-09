@@ -1,31 +1,42 @@
-# Byte-compiled / caches
+# Python
 __pycache__/
 *.py[cod]
+*$py.class
 *.so
 
-# virtualenv
-.venv/
-djangoenv/
-env/
+# Virtual environments
 venv/
+.venv/
+env/
+djangoenv/
 
-# DB
-db.sqlite3
-db - ?????.sqlite3
-
-# Logs
-logs/
+# Django
 *.log
-
-# Static collected
+logs/
+local_settings.py
 staticfiles/
 static_root/
+
+# Environment variables and secrets
+.env
+.env.*
+!.env.example
+
+# Database files
+*.sqlite3
+*.sqlite3-journal
+
+# User uploads
 media/
 
 # IDE
-.vscode/
 .idea/
+.vscode/
 *.iml
 
-# macOS
+# OS
 .DS_Store
+Thumbs.db
+
+# Private scraper
+EN_wpscrab.py

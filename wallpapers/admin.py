@@ -7,7 +7,7 @@ class WallpapersAdmin(admin.ModelAdmin):
 
 @admin.register(Categories)
 class CategoriesAdmin(admin.ModelAdmin):
-    list_display = ('id', 'name_category', 'name_category_ru')
+    list_display = ('id', 'name_category', 'name_category')
 
 @admin.register(Tags)
 class TagsAdmin(admin.ModelAdmin):

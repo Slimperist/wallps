@@ -2,12 +2,8 @@
 
 {% load wallps_tags %}
 
-{% block title %}
-Обои для рабочего стола в высоком разрешении. Обои на телефон, планшет. {% wallpapers_count %} обоев для Вас!
-{% endblock %}
-
 {% block down_navbar %}
-    <div><b>По вашему запросу найдено: {{ search_count }} </b></div>
+    <div><b>Search results found: {{ search_count }} </b></div>
 {% endblock %}
 
 {% block content %}
@@ -25,7 +21,7 @@
     </div>
     {% endfor %}
     {% else %}
-    <p align="center"><h4>По вашему запросу ничего не найдено</h4></p>
+    <p align="center"><h4>No wallpapers found matching your query.</h4></p>
     {% endif %}
 
 <!--Pagination-->

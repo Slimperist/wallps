@@ -5,7 +5,7 @@
 {% block down_navbar %}
     {% get_category_info as category_info %}
     {% if category_info.category %}
-        <div><b>{{ category_info.category.name_category_ru }} | | {{ category_info.entry_count }}</b></div>
+        <div><b>{{ category_info.category.name_category }} || {{ category_info.entry_count }}</b></div>
     {% else %}
     {% endif %}
 {% endblock %}

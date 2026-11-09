@@ -6,10 +6,13 @@ from datetime import datetime
 class Categories(models.Model):
     id = models.AutoField(primary_key=True)
     name_category = models.CharField(max_length=255, null=False)
-    name_category_ru = models.CharField(max_length=255, default='Новая категория')
+#    name_category_ru = models.CharField(max_length=255, default='Новая категория')
 
     def __str__(self):
-        return self.name_category_ru
+#        return self.name_category_ru
+        return self.name_category
+
+
 
     def get_absolute_url(self):
         return reverse('cat', kwargs={'category_id': self.pk})
