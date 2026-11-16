@@ -27,8 +27,14 @@ DEBUG = os.getenv('DJANGO_DEBUG', 'True').lower() == 'true'
 
 ALLOWED_HOSTS = os.getenv(
     'DJANGO_ALLOWED_HOSTS',
-    'wallps.fun,www.wallps.fun,127.0.0.1,localhost'
+    'wallps.eskiba.de,localhost,127.0.0.1'
 ).split(',')
+
+CSRF_TRUSTED_ORIGINS = [
+    'https://wallps.eskiba.de',
+]
+
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 
 # Application definition
